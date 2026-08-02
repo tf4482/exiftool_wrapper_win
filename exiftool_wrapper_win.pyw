@@ -8,9 +8,9 @@ import queue
 import shutil
 import subprocess
 import threading
+import tkinter as tk
 from collections.abc import Callable, Sequence
 from pathlib import Path
-import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
 
@@ -353,8 +353,10 @@ def create_app() -> tk.Tk:
             event_queue.put(
                 (
                     "error",
-                    f"Completed with errors: {successful} batch(es) succeeded and "
-                    f"{failed} failed. Review the progress log.",
+                    (
+                        f"Completed with errors: {successful} batch(es) succeeded and "
+                        f"{failed} failed. Review the progress log."
+                    ),
                 )
             )
             return
